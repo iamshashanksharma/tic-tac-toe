@@ -1,10 +1,10 @@
-.body{
+body{
     background-color: violet;
 }
 .cell{
     width:85px;
     height:85px;
-    background-color:grey;
+    background-color : grey;
     border-radius: 10px;
     margin: 1px;
 
