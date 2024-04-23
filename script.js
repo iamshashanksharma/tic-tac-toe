@@ -7,6 +7,7 @@ let winnerText = "";
 
 function checkWinCondition()
 {
+    let cellsFilled = true;
     const winCondition = [
         [0,1,2],
         [3,4,5],
@@ -40,6 +41,23 @@ function checkWinCondition()
         }
 
 }
+      if(!gameStatus)
+      {
+        for(let cell of cells)
+        {
+            if(cell.innerHTML === "")
+            {
+                cellsFilled = false;
+                break;
+            }
+        }
+             if(cellsFilled)
+            {
+                winnerText = "Match Drawn";
+                gameStatus = true;
+            }
+        
+      }
 return winnerText;
 }
 function makeMove(cellIndex)
@@ -48,8 +66,9 @@ function makeMove(cellIndex)
     if(!gameStatus && cells[cellIndex].innerHTML === "")
     {
         cells[cellIndex].innerHTML = playerResponse;
-         result = checkWinCondition();
+         result=checkWinCondition();
          winner.innerText += result;
+         
     }
       if(!gameStatus)
       {
@@ -65,9 +84,10 @@ function makeMove(cellIndex)
         {
             let randomIndex = Math.floor(Math.random() * cmpMoveArray.length);
             cmpMoveArray[randomIndex].innerHTML = computerResponse;
-            result = checkWinCondition();
+            result=checkWinCondition();
             winner.innerText += result;
         }
 }
 }
+
         
